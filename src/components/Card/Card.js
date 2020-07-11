@@ -2,18 +2,22 @@ import React, { Component } from "react";
 import "./styles.css";
 class Card extends Component {
   render() {
+    const { product } = this.props;
     return (
       <div className="card">
         <img
-          src="https://www.tshigo.com/wp-content/uploads/2019/05/hersey-cok-guzel-olacak-erkek-tisort.jpg"
+          src={product.image[0]}
           className="card-img"
-          alt="Product İmage"
+          alt={product.name}
         ></img>
-        <p className="card-trade">Adidas</p>
-        <p className="card-subtitle">
-          Kırmızı T-sort <small>Erkek - Kırmızı</small>{" "}
+        <p className="card-trade">{product.trade}</p>
+        <p className="card-subtitle">{product.name} </p>
+        <p>
+          <small>
+            {product.genderName} - {product.color}
+          </small>
         </p>
-        <p className="card-price">19.99 ₺</p>
+        <p className="card-price">{product.price} ₺</p>
       </div>
     );
   }

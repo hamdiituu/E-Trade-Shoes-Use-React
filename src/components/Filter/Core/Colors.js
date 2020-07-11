@@ -5,21 +5,18 @@ class Colors extends Component {
   render() {
     return (
       <div className="filter-data">
-        <p className="title">Colors</p>
+        <p className="title">Renkler</p>
         <div className="filter-check">
-          <div>
-            <input type="checkbox" id="scales" name="scales" />
-            <label htmlFor="scales">Gray</label>
-          </div>
+          {this.props.colors.map(item=>{
+            return(
+              <div key={item.id}>
+              <input type="checkbox"  name={item.name} />
+              <label htmlFor={item.name}>{item.name}</label>
+            </div>
+            )
+          })}
+        
 
-          <div>
-            <input type="checkbox" id="horns" name="horns" />
-            <label htmlFor="horns">Black</label>
-          </div>
-          <div>
-            <input type="checkbox" id="horns" name="horns" />
-            <label htmlFor="horns">Red</label>
-          </div>
         </div>
       </div>
     );

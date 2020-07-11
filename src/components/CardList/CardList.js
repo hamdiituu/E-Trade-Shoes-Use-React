@@ -5,11 +5,12 @@ class CardList extends Component {
     render() {
         return (
             <div className="product-list">
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
+               {
+                   this.props.products.map(item=>{
+                     return  <Card  product={item} key={item.id} />
+                   })
+
+               }
                 
             </div>
         )

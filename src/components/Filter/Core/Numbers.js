@@ -1,29 +1,24 @@
 import React, { Component } from "react";
-import './styles.css'
+import "./styles.css";
+
 class Numbers extends Component {
   render() {
     return (
       <div className="filter-data">
-        <p className="title">Numbers</p>
+        <p className="title">Ayak Numarası</p>
         <div className="filter-check">
-          <div>
-            <input type="checkbox" id="scales" name="scales" />
-            <label htmlFor="scales">38</label>
-          </div>
-
-          <div>
-            <input type="checkbox" id="horns" name="horns" />
-            <label htmlFor="horns">39</label>
-          </div>
-          <div>
-            <input type="checkbox" id="horns" name="horns" />
-            <label htmlFor="horns">40</label>
-          </div>
+          {this.props.numbers.map((item) => {
+            return (
+              <div key={item.id} >
+                <input type="checkbox" id="scales" name={item.name} />
+                <label htmlFor={item.name}>{item.name}</label>
+              </div>
+            );
+          })}
         </div>
       </div>
     );
   }
 }
-
 
 export default Numbers;
