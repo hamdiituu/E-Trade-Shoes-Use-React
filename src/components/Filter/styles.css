@@ -1,0 +1,11 @@
+.sticky {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.filter-bar {
+  width: 20%;
+  flex-direction: column;
+  height: 100%;
+}

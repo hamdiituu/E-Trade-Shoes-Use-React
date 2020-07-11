@@ -1,0 +1,71 @@
+.sticky {
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+  }
+  
+  .filter-bar {
+    width: 20%;
+    flex-direction: column;
+    height: 100%;
+  }
+  .searchBox {
+    height: 40px;
+    width: 200px;
+    margin-top: 25px;
+    right: 20px;
+  
+    padding-left: 10px;
+  }
+  .priceBox {
+    height: 40px;
+    width: 50px;
+  
+    padding-left: 10px;
+  }
+  
+  ::placeholder {
+    color: rgb(155, 153, 155);
+    padding-left: 10px;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 24px;
+    
+  }
+  .filter-input {
+      background-color: #F2F2F2;
+      border-width: 0px;
+      color: rgb(155,153,155);
+      
+  }
+  
+  .title {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      font-size: 24px;
+  }
+  .filter-check {
+      background-color: #F2F2F2;
+      flex-direction: column;
+      margin-right: 50px;
+      padding: 10px;
+  
+  }
+  
+  .show-btn {
+      width: 207px;
+      height: 25px;
+      margin-top: 20px;
+  }
+  button:hover{
+      color:tomato;
+      border-width: 1px;
+      border-color: tomato;
+  }
+  
+  .price-view {
+    flex-direction: row;
+  }
