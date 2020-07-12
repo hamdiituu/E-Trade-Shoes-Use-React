@@ -5,7 +5,7 @@ class Numbers extends Component {
   render() {
     return (
       <div className="filter-data">
-        <p className="title">Ayak Numarası</p>
+        <p className="title">Beden</p>
         <div className="filter-check">
           {this.props.numbers.map((item) => {
             return (
@@ -13,7 +13,7 @@ class Numbers extends Component {
                 <input
                   type="checkbox"
                   name={item.name}
-                  id={item.id}
+                  id={item.name}
                   onChange={(e) => this.props.handlerCheck(e)}
                   filter="numbersFilter"
                 />

@@ -77,11 +77,6 @@ class App extends React.Component {
       .catch((err) => console.log(err));
   };
 
-  searchProduct = () => {
-    var str = "Hello world, welcome to the universe.";
-    var n = str.includes("world");
-  };
-
   handlerCheck = (e) => {
     let checked = e.target.checked;
     let id = parseInt(e.target.id);
@@ -100,13 +95,20 @@ class App extends React.Component {
     }
 
     console.log(filter, this.state[filter]);
-    this.tradeToProductFilter();
+    this.productsToFilter();
   };
 
-  tradeToProductFilter = () => {
-    const { tradesFilter, products, gendersFilter } = this.state;
+  productsToFilter = () => {
+    // debugger;
+    const {
+      tradesFilter,
+      products,
+      gendersFilter,
+      colorsFilter,
+      numbersFilter,
+    } = this.state;
     let result = products;
-    result.map((p) => {
+    result.forEach((p) => {
       if (tradesFilter.length > 0) {
         if (tradesFilter.find((t) => t === p.tradeId)) {
           p.visible = true;
@@ -118,7 +120,46 @@ class App extends React.Component {
       }
     });
 
-    
+    result.forEach((p) => {
+      if (gendersFilter.length) {
+        // debugger;
+        !gendersFilter.find((g) => g === p.gender) && (p.visible = false);
+      }
+    });
+
+    result.forEach((p) => {
+      if (colorsFilter.length > 0) {
+        !colorsFilter.find((g) => g === p.colorId) && (p.visible = false);
+      }
+    });
+    // result.map((p) => {
+    //   if (numbersFilter.length > 0) {
+    //     let visible = false;
+    //     p.number.map(i=>{
+    //      // debugger;
+    //      visible = numbersFilter.map(element => {
+    //       if(element === i){
+    //         return true;
+    //       }
+    //       else{
+    //         return false
+    //       }
+    //      });
+    //      !(visible) && (p.visible =false)
+    //     })
+    //   }
+    // });
+
+    result.forEach((p) => {
+      if (numbersFilter.length > 0) {
+        let visible = false;
+        numbersFilter.forEach((nf) => {
+          p.number.find((pn) => pn === nf) && (visible = true);
+        });
+        !visible && (p.visible = false);
+      }
+    });
+
     this.setState({ products: result });
 
     console.log(result);

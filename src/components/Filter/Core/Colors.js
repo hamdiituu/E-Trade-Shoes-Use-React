@@ -5,7 +5,7 @@ class Colors extends Component {
   render() {
     return (
       <div className="filter-data">
-        <p className="title">Renkler</p>
+        <p className="title">Renk</p>
         <div className="filter-check">
           {this.props.colors.map((item) => {
             return (

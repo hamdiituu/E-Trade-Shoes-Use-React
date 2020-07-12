@@ -5,7 +5,7 @@ import {
   Genders,
   Colors,
   Numbers,
-  SearchBox,
+
 } from "./Core";
 import "./styles.css";
 class Filter extends Component {
@@ -15,8 +15,7 @@ class Filter extends Component {
     return (
       <div className="filter-bar sticky">
         {/* <!-- Search Box--> */}
-        <SearchBox />
-
+      
         {/* <!-- Search Box--> */}
 
         {/* <!-- Price Filter Box--> */}

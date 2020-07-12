@@ -6,7 +6,7 @@ class Trades extends Component {
   render() {
     return (
       <div className="filter-data">
-        <p className="title">Markalar</p>
+        <p className="title">Marka</p>
         <div className="filter-check">
           {this.props.trades.map((item) => {
             return (
