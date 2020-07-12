@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/E-Trade-Shoes-Use-React/static/css/main.d0a4c115.chunk.css",
+    "main.js": "/E-Trade-Shoes-Use-React/static/js/main.4d6ecff2.chunk.js",
+    "main.js.map": "/E-Trade-Shoes-Use-React/static/js/main.4d6ecff2.chunk.js.map",
+    "runtime-main.js": "/E-Trade-Shoes-Use-React/static/js/runtime-main.e24e69f8.js",
+    "runtime-main.js.map": "/E-Trade-Shoes-Use-React/static/js/runtime-main.e24e69f8.js.map",
+    "static/js/2.cfc03931.chunk.js": "/E-Trade-Shoes-Use-React/static/js/2.cfc03931.chunk.js",
+    "static/js/2.cfc03931.chunk.js.map": "/E-Trade-Shoes-Use-React/static/js/2.cfc03931.chunk.js.map",
+    "index.html": "/E-Trade-Shoes-Use-React/index.html",
+    "precache-manifest.9e66a00256788b1e07324e10d3fbfbde.js": "/E-Trade-Shoes-Use-React/precache-manifest.9e66a00256788b1e07324e10d3fbfbde.js",
+    "service-worker.js": "/E-Trade-Shoes-Use-React/service-worker.js",
+    "static/css/main.d0a4c115.chunk.css.map": "/E-Trade-Shoes-Use-React/static/css/main.d0a4c115.chunk.css.map",
+    "static/js/2.cfc03931.chunk.js.LICENSE.txt": "/E-Trade-Shoes-Use-React/static/js/2.cfc03931.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e24e69f8.js",
+    "static/js/2.cfc03931.chunk.js",
+    "static/css/main.d0a4c115.chunk.css",
+    "static/js/main.4d6ecff2.chunk.js"
+  ]
+}
