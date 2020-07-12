@@ -11,7 +11,7 @@ import "./styles.css";
 class Filter extends Component {
   
   render() {
-    const { numbers,trades,genders,colors} = this.props;
+    const { numbers,trades,genders,colors,handlerCheck} = this.props;
     return (
       <div className="filter-bar sticky">
         {/* <!-- Search Box--> */}
@@ -27,23 +27,23 @@ class Filter extends Component {
 
 		<!-- Trades Filter Box--> */}
 
-        <Trades  trades ={trades}/>
+        <Trades handlerCheck={handlerCheck} trades ={trades}/>
 
         {/* <!-- Trades Filter Box--> */}
 
         {/* <!-- Genders Filter Box--> */}
 
-        <Genders genders={genders} />
+        <Genders handlerCheck={handlerCheck} genders={genders} />
 
         {/* <!-- Genders Filter Box--> */}
 
         {/* <!-- Colors Filter Box--> */}
 
-        <Colors colors={colors} />
+        <Colors handlerCheck={handlerCheck} colors={colors} />
 
         {/* <!-- Numbers Filter Box--> */}
 
-        <Numbers numbers={numbers} />
+        <Numbers handlerCheck={handlerCheck}  numbers={numbers} />
 
         {/* <!-- Numbers Filter Box--> */}
 

@@ -7,16 +7,20 @@ class Colors extends Component {
       <div className="filter-data">
         <p className="title">Renkler</p>
         <div className="filter-check">
-          {this.props.colors.map(item=>{
-            return(
+          {this.props.colors.map((item) => {
+            return (
               <div key={item.id}>
-              <input type="checkbox"  name={item.name} />
-              <label htmlFor={item.name}>{item.name}</label>
-            </div>
-            )
+                <input
+                  type="checkbox"
+                  name={item.name}
+                  id={item.id}
+                  onChange={(e) => this.props.handlerCheck(e)}
+                  filter="colorsFilter"
+                />
+                <label htmlFor={item.name}>{item.name}</label>
+              </div>
+            );
           })}
-        
-
         </div>
       </div>
     );

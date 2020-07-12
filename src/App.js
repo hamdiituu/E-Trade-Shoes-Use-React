@@ -8,6 +8,11 @@ class App extends React.Component {
     numbers: [],
     trades: [],
     products: [],
+    tradesFilter: [],
+    gendersFilter: [],
+    colorsFilter: [],
+    numbersFilter: [],
+    productsFilterList: [],
   };
 
   componentDidMount() {
@@ -53,18 +58,16 @@ class App extends React.Component {
         let products = [];
         products.push(
           res.map((product) => {
-            let trade = this.state.trades.filter(
-              (trade) => trade.id === product.tradeId
-            )[0].name;
-            product.trade = trade;
-            let color = this.state.colors.filter(
-              (color) => color.id === product.colorId
-            )[0].name;
-            product.color = color;
-            let gender = this.state.genders.filter(
-              (gender) => gender.id === product.gender
-            )[0].name;
-            product.genderName = gender;
+            product.trade = this.state.trades.find(
+              (t) => t.id === product.tradeId
+            ).name;
+            product.color = this.state.colors.find(
+              (c) => c.id === product.colorId
+            ).name;
+            product.genderName = this.state.genders.find(
+              (c) => c.id === product.gender
+            ).name;
+            product.visible = true;
             return product;
           })
         );
@@ -72,6 +75,54 @@ class App extends React.Component {
         this.setState({ products: products[0] });
       })
       .catch((err) => console.log(err));
+  };
+
+  searchProduct = () => {
+    var str = "Hello world, welcome to the universe.";
+    var n = str.includes("world");
+  };
+
+  handlerCheck = (e) => {
+    let checked = e.target.checked;
+    let id = parseInt(e.target.id);
+    let filter = e.target.getAttribute("filter");
+    let list = this.state[filter];
+    if (checked) {
+      !list.find((i) => i === id) && list.push(id);
+      this.setState({ [filter]: list });
+      //console.log(this.state.trades);
+    } else {
+      let index = list.indexOf(id);
+      list.splice(index, 1);
+
+      this.setState({ [filter]: list });
+      //console.log(this.state.trades);
+    }
+
+    console.log(filter, this.state[filter]);
+    this.tradeToProductFilter();
+  };
+
+  tradeToProductFilter = () => {
+    const { tradesFilter, products, gendersFilter } = this.state;
+    let result = products;
+    result.map((p) => {
+      if (tradesFilter.length > 0) {
+        if (tradesFilter.find((t) => t === p.tradeId)) {
+          p.visible = true;
+        } else {
+          p.visible = false;
+        }
+      } else {
+        p.visible = true;
+      }
+    });
+
+    
+    this.setState({ products: result });
+
+    console.log(result);
+    this.setState({ productsFilterList: result });
   };
 
   render() {
@@ -83,6 +134,7 @@ class App extends React.Component {
         colors={colors}
         numbers={numbers}
         products={products}
+        handlerCheck={this.handlerCheck}
       />
     );
   }

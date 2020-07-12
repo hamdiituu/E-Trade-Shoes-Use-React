@@ -9,8 +9,14 @@ class Numbers extends Component {
         <div className="filter-check">
           {this.props.numbers.map((item) => {
             return (
-              <div key={item.id} >
-                <input type="checkbox" id="scales" name={item.name} />
+              <div key={item.id}>
+                <input
+                  type="checkbox"
+                  name={item.name}
+                  id={item.id}
+                  onChange={(e) => this.props.handlerCheck(e)}
+                  filter="numbersFilter"
+                />
                 <label htmlFor={item.name}>{item.name}</label>
               </div>
             );

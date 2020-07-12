@@ -7,7 +7,7 @@ class CardList extends Component {
             <div className="product-list">
                {
                    this.props.products.map(item=>{
-                     return  <Card  product={item} key={item.id} />
+                     return ( item.visible && <Card  product={item} key={item.id} /> )
                    })
 
                }
