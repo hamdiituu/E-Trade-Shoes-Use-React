@@ -1,32 +1,26 @@
 import React, { Component } from "react";
-import {
-  Price,
-  Trades,
-  Genders,
-  Colors,
-  Numbers,
-
-} from "./Core";
+import {Trades, Genders, Colors, Numbers } from "./Core";
 import "./styles.css";
 class Filter extends Component {
-  
   render() {
-    const { numbers,trades,genders,colors,handlerCheck} = this.props;
+    const {
+      numbers,
+      trades,
+      genders,
+      colors,
+      handlerCheck,
+    } = this.props;
     return (
       <div className="filter-bar sticky">
-        {/* <!-- Search Box--> */}
-      
-        {/* <!-- Search Box--> */}
-
         {/* <!-- Price Filter Box--> */}
 
-        <Price />
+        
 
         {/* <!-- Price Filter Box-->
 
 		<!-- Trades Filter Box--> */}
 
-        <Trades handlerCheck={handlerCheck} trades ={trades}/>
+        <Trades handlerCheck={handlerCheck} trades={trades} />
 
         {/* <!-- Trades Filter Box--> */}
 
@@ -42,11 +36,9 @@ class Filter extends Component {
 
         {/* <!-- Numbers Filter Box--> */}
 
-        <Numbers handlerCheck={handlerCheck}  numbers={numbers} />
+        <Numbers handlerCheck={handlerCheck} numbers={numbers} />
 
         {/* <!-- Numbers Filter Box--> */}
-
-       
       </div>
     );
   }

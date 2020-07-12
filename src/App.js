@@ -13,6 +13,7 @@ class App extends React.Component {
     colorsFilter: [],
     numbersFilter: [],
     productsFilterList: [],
+    orderBy: undefined,
   };
 
   componentDidMount() {
@@ -93,9 +94,43 @@ class App extends React.Component {
       this.setState({ [filter]: list });
       //console.log(this.state.trades);
     }
-
     console.log(filter, this.state[filter]);
     this.productsToFilter();
+  };
+
+  productOrderByAsc = (prop) => {
+    return function (a, b) {
+      if (a[prop] > b[prop]) {
+        return 1;
+      } else if (a[prop] < b[prop]) {
+        return -1;
+      }
+      return 0;
+    };
+  };
+
+  productOrderByDesc = (prop) => {
+    return function (a, b) {
+      if (a[prop] < b[prop]) {
+        return 1;
+      } else if (a[prop] > b[prop]) {
+        return -1;
+      }
+      return 0;
+    };
+  };
+
+  orderProduct = (e) => {
+    let value = e.target.value;
+    let products = this.state.products;
+    if (value === "art") {
+      products = products.sort(this.productOrderByAsc("price"));
+      this.setState({ products });
+    }
+    if (value === "azal") {
+      products = products.sort(this.productOrderByDesc("price"));
+      this.setState({ products });
+    }
   };
 
   productsToFilter = () => {
@@ -108,6 +143,7 @@ class App extends React.Component {
       numbersFilter,
     } = this.state;
     let result = products;
+
     result.forEach((p) => {
       if (tradesFilter.length > 0) {
         if (tradesFilter.find((t) => t === p.tradeId)) {
@@ -132,23 +168,6 @@ class App extends React.Component {
         !colorsFilter.find((g) => g === p.colorId) && (p.visible = false);
       }
     });
-    // result.map((p) => {
-    //   if (numbersFilter.length > 0) {
-    //     let visible = false;
-    //     p.number.map(i=>{
-    //      // debugger;
-    //      visible = numbersFilter.map(element => {
-    //       if(element === i){
-    //         return true;
-    //       }
-    //       else{
-    //         return false
-    //       }
-    //      });
-    //      !(visible) && (p.visible =false)
-    //     })
-    //   }
-    // });
 
     result.forEach((p) => {
       if (numbersFilter.length > 0) {
@@ -176,6 +195,7 @@ class App extends React.Component {
         numbers={numbers}
         products={products}
         handlerCheck={this.handlerCheck}
+        orderProduct={this.orderProduct}
       />
     );
   }
